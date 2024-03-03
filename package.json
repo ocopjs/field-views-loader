@@ -1,0 +1,38 @@
+{
+  "name": "@ocopjs/field-views-loader",
+  "description": "OcopJS - Để nạp tất cả giao diện ô nhập sử dụng trên ứng dụng. 🇻🇳",
+  "version": "1.0.0",
+  "author": "ocopjs",
+  "scripts": {
+    "format": "prettier --write \"**/*.{ts,tsx,md,js}\"",
+    "semantic-release": "semantic-release"
+  },
+  "license": "Apache-2.0",
+  "homepage": "https://ocopee.com",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ocopjs/field-views-loader.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ocopjs/field-views-loader/issues"
+  },
+  "main": "./src/index.js",
+  "engines": {
+    "node": "16"
+  },
+  "dependencies": {
+    "loader-utils": "^3.2.1"
+  },
+  "devDependencies": {
+    "@semantic-release/commit-analyzer": "^11.1.0",
+    "@semantic-release/git": "^10.0.1",
+    "@semantic-release/github": "^9.2.6",
+    "@semantic-release/npm": "^11.0.2",
+    "@semantic-release/release-notes-generator": "^12.1.0",
+    "prettier": "^3.2.5",
+    "semantic-release": "^23.0.2"
+  }
+}
