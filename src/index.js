@@ -1,4 +1,4 @@
-const loaderUtils = require("loader-utils");
+const { getOptions } = require("loader-utils");
 const fs = require("fs");
 
 function serialize(value, allPaths) {
@@ -37,7 +37,7 @@ function findPageComponents(pages, pageComponents = {}) {
 }
 
 module.exports = function () {
-  const { pages, hooks, listViews } = loaderUtils.getOptions(this);
+  const { pages, hooks, listViews } = getOptions(this);
   /* adminMeta gives us a `lists` object in the shape:
     {
       pages: [
@@ -100,7 +100,7 @@ module.exports = function () {
     .join(",\n")}\n}`;
 
   const source = `
-    import { captureSuspensePromises } from '@buon/utils';
+    import { captureSuspensePromises } from '@ocopjs/utils';
     let promiseCache = new Map();
     let valueCache = new Map();
 

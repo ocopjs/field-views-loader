@@ -24,7 +24,7 @@
     "node": "16"
   },
   "dependencies": {
-    "loader-utils": "^3.2.1"
+    "loader-utils": "^2.0.4"
   },
   "devDependencies": {
     "@semantic-release/commit-analyzer": "^11.1.0",
