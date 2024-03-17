@@ -36,52 +36,8 @@ function findPageComponents(pages, pageComponents = {}) {
   return pageComponents;
 }
 
-module.exports = function () {
+module.exports = function() {
   const { pages, hooks, listViews } = getOptions(this);
-  /* adminMeta gives us a `lists` object in the shape:
-    {
-      pages: [
-        {
-          label: 'Hello World',
-          path: '/hello',
-          component: 'absolute/path/to/page',
-        },
-      ],
-      lists: {
-        [listPath]: {  // e.g "User"
-          ...
-          access: { create, read, update, delete, auth },
-          views: {
-            [fieldPath]: {  // e.g 'email'
-              Controller: 'absolute/path/to/controller',
-              [fieldTypeView]: 'absolute/path/to/view', // e.g 'Field'
-              [fieldTypeView]: 'another/absolute/path'  // e.g 'Column'
-              ...
-            }
-            ...
-          }
-        }
-      }
-    }
-
-  and our loader simply transforms it into usable code that looks like this:
-
-  module.exports = {
-    "__pages__": {
-      "/hello": require('absolute/path/to/page'),
-    },
-    "User": {
-      "email": {
-        Controller: require('absolute/path/to/controller'),
-        Field: require('relative/path/to/view'),
-        Column: require('another/relative/path')
-        ...
-      },
-      ...
-    }
-    ...
-  }
-   */
 
   const allViews = {
     ...listViews,
@@ -92,12 +48,14 @@ module.exports = function () {
   const stringifiedObject = serialize(allViews, allPaths);
 
   let loaders = `{\n${[...allPaths]
-    .map((path) => {
-      return `${JSON.stringify(path)}: () => import(${JSON.stringify(
-        path,
-      )}).then(interopDefault)`;
-    })
-    .join(",\n")}\n}`;
+      .map((path) => {
+        return `${JSON.stringify(path)}: () => import(${JSON.stringify(
+          path,
+        )
+          }).then(interopDefault)`;
+      })
+      .join(",\n")
+    }\n}`;
 
   const source = `
     import { captureSuspensePromises } from '@ocopjs/utils';
