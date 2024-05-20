@@ -36,7 +36,7 @@ function findPageComponents(pages, pageComponents = {}) {
   return pageComponents;
 }
 
-module.exports = function() {
+module.exports = function () {
   const { pages, hooks, listViews } = getOptions(this);
 
   const allViews = {
@@ -48,14 +48,12 @@ module.exports = function() {
   const stringifiedObject = serialize(allViews, allPaths);
 
   let loaders = `{\n${[...allPaths]
-      .map((path) => {
-        return `${JSON.stringify(path)}: () => import(${JSON.stringify(
-          path,
-        )
-          }).then(interopDefault)`;
-      })
-      .join(",\n")
-    }\n}`;
+    .map((path) => {
+      return `${JSON.stringify(path)}: () => import(${JSON.stringify(
+        path,
+      )}).then(interopDefault)`;
+    })
+    .join(",\n")}\n}`;
 
   const source = `
     import { captureSuspensePromises } from '@ocopjs/utils';
