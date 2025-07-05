@@ -1,7 +1,7 @@
 {
   "name": "@ocopjs/field-views-loader",
   "description": "OcopJS - Để nạp tất cả giao diện ô nhập sử dụng trên ứng dụng. 🇻🇳",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "author": "ocopjs",
   "scripts": {
     "format": "prettier --write \"**/*.{ts,tsx,md,js}\"",
