@@ -5,6 +5,7 @@
   "author": "ocopjs",
   "scripts": {
     "format": "prettier --write \"**/*.{ts,tsx,md,js}\"",
+    "build": "tsup",
     "semantic-release": "semantic-release"
   },
   "license": "Apache-2.0",
@@ -19,12 +20,11 @@
   "bugs": {
     "url": "https://github.com/ocopjs/field-views-loader/issues"
   },
-  "main": "./src/index.js",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
   "engines": {
-    "node": "16"
-  },
-  "dependencies": {
-    "loader-utils": "^2.0.4"
+    "node": "20"
   },
   "devDependencies": {
     "@semantic-release/commit-analyzer": "^11.1.0",
@@ -32,7 +32,10 @@
     "@semantic-release/github": "^9.2.6",
     "@semantic-release/npm": "^11.0.2",
     "@semantic-release/release-notes-generator": "^12.1.0",
+    "loader-utils": "^3.3.1",
     "prettier": "^3.2.5",
-    "semantic-release": "^23.0.2"
+    "semantic-release": "^23.0.2",
+    "tsup": "^8.0.2",
+    "typescript": "^5.3.3"
   }
 }

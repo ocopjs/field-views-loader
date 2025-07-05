@@ -1,5 +1,5 @@
-const { getOptions } = require("loader-utils");
-const fs = require("fs");
+import fs from "fs";
+import { getOptions } from "loader-utils";
 
 function serialize(value, allPaths) {
   if (typeof value === "string") {
